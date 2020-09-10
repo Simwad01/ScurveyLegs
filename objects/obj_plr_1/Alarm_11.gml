@@ -1,0 +1,1 @@
+p1_shot_clock = 1;
