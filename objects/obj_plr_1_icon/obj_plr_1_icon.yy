@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_plr2",
-    "path": "sprites/spr_plr2/spr_plr2.yy",
+    "name": "spr_plr1",
+    "path": "sprites/spr_plr1/spr_plr1.yy",
   },
   "solid": false,
   "visible": false,
@@ -28,7 +28,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_plr_2_icon",
+  "name": "obj_plr_1_icon",
   "tags": [],
   "resourceType": "GMObject",
 }

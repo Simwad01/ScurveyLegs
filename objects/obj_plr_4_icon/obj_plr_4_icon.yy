@@ -4,7 +4,7 @@
     "path": "sprites/spr_plr_4_icon/spr_plr_4_icon.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

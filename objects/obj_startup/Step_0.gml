@@ -1,71 +1,100 @@
-var l600683FC_0 = 0;
-var l600683FC_1 = gp_start;
-if(gamepad_is_connected(l600683FC_0) && gamepad_button_check_pressed(l600683FC_0, l600683FC_1))
+// Check Controller and assign Players
+for (var i = 0; i < global.gpcount; i++;)
 {
+    if (gamepad_button_check(i,gp_face1))
+    {
+		//show_debug_message("Found gamepad number " + string(i));
+		if (global.PlayerGamePad[NumPlayers] <0 && global.gpMapped[i] = false) {
+			// Button pressed on unassigned controller, current player does *not* have assignment (ie first player)
+			global.PlayerGamePad[NumPlayers] = i;
+			global.gpMapped[i] = true;
+			show_debug_message("Gamepad " + string(i) + " mapped to player " + string(NumPlayers));
+			switch (NumPlayers) {
+				case 1:
+					with(obj_plr_1_icon) {
+						visible = true;
+					}
+					break;
+				case 2:
+					with(obj_plr_2_icon) {
+						visible = true;
+					}
+					break;
+				case 3:
+					with(obj_plr_3_icon) {
+						visible = true;
+					}
+					break;
+				case 4:
+					with(obj_plr_4_icon) {
+						visible = true;
+					}
+					break;
+			}
+			// Play bleep for player join
+			audio_play_sound(cute_bleep, 0, 0);
+		} else if (global.gpMapped[i] = false && NumPlayers < 4) {
+			// Button pressed on unassigned controller, current player *does* have assignment
+			// So add new player
+			NumPlayers += 1;
+			global.PlayerGamePad[NumPlayers] = i;
+			global.gpMapped[i] = true;
+			show_debug_message("Gamepad " + string(i) + " mapped to player " + string(NumPlayers));
+			switch (NumPlayers) {
+				case 1:
+					with(obj_plr_1_icon) {
+						visible = true;
+					}
+					break;
+				case 2:
+					with(obj_plr_2_icon) {
+						visible = true;
+					}
+					break;
+				case 3:
+					with(obj_plr_3_icon) {
+						visible = true;
+					}
+					break;
+				case 4:
+					with(obj_plr_4_icon) {
+						visible = true;
+					}
+					break;
+			}
+			// Play bleep for player join
+			audio_play_sound(cute_bleep, 0, 0);
+		} 
+    }
+}
+
+//Maybe Keyboard input too
+if (keyboard_check(vk_escape)) {
+	// Escape quits
 	game_end();
-}
-
-var l256CEB6C_0 = 0;
-var l256CEB6C_1 = gp_padr;
-if(gamepad_is_connected(l256CEB6C_0) && gamepad_button_check_pressed(l256CEB6C_0, l256CEB6C_1))
-{
-	with(object24) {
-	global.mapselect = global.mapselect+1;
-	
-	}
-
-	if(global.mapselect > 6)
+} else if (keyboard_check(vk_enter)) {
+	//Enter starts game
+	global.timeglobal = 0;
+	switch (global.mapselect)
 	{
-		with(object24) {
-		global.mapselect = 1;
-		
-		}
-	}
-}
-
-var l4B1FF949_0 = 0;
-var l4B1FF949_1 = gp_face1;
-if(gamepad_is_connected(l4B1FF949_0) && gamepad_button_check_pressed(l4B1FF949_0, l4B1FF949_1))
-{
-	if(global.mapselect == 1)
-	{
-		global.timeglobal = 0;
-	
-		room_goto(room0);
-	}
-
-	if(global.mapselect == 2)
-	{
-		global.timeglobal = 0;
-	
-		room_goto(room1);
-	}
-
-	if(global.mapselect == 4)
-	{
-		global.timeglobal = 0;
-	
-		room_goto(room3);
-	}
-
-	if(global.mapselect == 3)
-	{
-		global.timeglobal = 0;
-	
-		room_goto(room2);
-	}
-
-	if(global.mapselect == 5)
-	{
-		global.timeglobal = 0;
-	
-		room_goto(room4);
-	}
-
-	if(global.mapselect == 6)
-	{
-		global.timeglobal = 0;
-	
-		room_goto(room5);
+		case 1:
+			room_goto(room0);
+			break;
+		case 2:
+			room_goto(room1);
+			break;
+		case 3:
+			room_goto(room2);
+			break;
+		case 4:
+			room_goto(room3);
+			break;
+		case 5:
+			room_goto(room4);
+			break;
+		case 6:	
+			room_goto(room5);
+			break;
 	}
 }
+	
