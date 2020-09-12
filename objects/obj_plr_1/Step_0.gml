@@ -6,9 +6,8 @@ if(plr_1_alive == 1)
 		var gamepadindex = global.PlayerGamePad[1]
 		if ( gamepadindex >= 0 && gamepad_is_connected(gamepadindex)) {
 			
-			axis0 = gamepad_is_connected(0) ? gamepad_axis_value(0, gp_axislh) : 0;
-	
-			if(gamepad_button_check_pressed(gamepadindex, gp_face3)) {
+			// shooting
+			if(gamepad_button_check(gamepadindex, gp_face3)) {
 				if(p1_shot_clock == 1)
 				{
 					// play sound and set pitch
@@ -29,7 +28,8 @@ if(plr_1_alive == 1)
 					p1_shot_clock = 0;
 					alarm_set(11, 60);
 				}
-			} else if(gamepad_button_check_pressed(gamepadindex, gp_face2))	{
+			}
+			if(gamepad_button_check(gamepadindex, gp_face2)) {
 				if(p1_shot_clock == 1)
 				{
 					// play sound and set pitch
@@ -50,13 +50,21 @@ if(plr_1_alive == 1)
 					p1_shot_clock = 0;
 					alarm_set(11, 60);
 				}
-			} else if(gamepad_button_check(gamepadindex, gp_padr) || gamepad_button_check_released(gamepadindex, gp_padr)) {
+			}
+			
+			// turning
+			var axis0 = gamepad_axis_value(gamepadindex, gp_axislh);
+			show_debug_message("Read axis0 as " + string_format(axis0,1,2));
+			if(gamepad_button_check(gamepadindex, gp_padr) || (axis0 > 0.1) ) {
 				image_angle += -1;
 				direction += -1;
-			} else if(gamepad_button_check(gamepadindex, gp_padl) || gamepad_button_check_released(gamepadindex, gp_padl)) {
+			} else if(gamepad_button_check(gamepadindex, gp_padl) || (axis0 < -0.1) ) {
 				image_angle += 1;	
 				direction += 1;
-			} else if(gamepad_button_check_pressed(gamepadindex, gp_padu)) {
+			}
+			
+			// Speed
+			if(gamepad_button_check_pressed(gamepadindex, gp_padu)) {
 				spd_plr1 = spd_plr1+1;	
 				if(spd_plr1 > 3) then spd_plr1 = 3;
 				speed = spd_plr1;
@@ -64,7 +72,10 @@ if(plr_1_alive == 1)
 				spd_plr1 = spd_plr1-1;
 				if(spd_plr1 < 0) then spd_plr1 = 0;
 				speed = spd_plr1;
-			} else if(gamepad_button_check_pressed(gamepadindex, gp_face4))	{
+			} 
+			
+			// other controls
+			if(gamepad_button_check_pressed(gamepadindex, gp_face4))	{
 				shot_type = 1;
 			} else if(gamepad_button_check_pressed(gamepadindex, gp_face1))	{
 				shot_type = 0;

@@ -97,6 +97,9 @@ if (global.PlayerGamePad[1] != -1)
 		if (room_exists(roomindex)) {
 			room_goto(roomindex);	
 		}
+	} else if (gamepad_button_check_pressed(global.PlayerGamePad[1],gp_select)) {
+		// Select/PS button quits
+		game_end();
 	}
 }
 
