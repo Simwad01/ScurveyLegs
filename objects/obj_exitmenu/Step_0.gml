@@ -1,6 +1,5 @@
-var l4CF3754E_0 = 0;
-var l4CF3754E_1 = gp_start;
-if(gamepad_is_connected(l4CF3754E_0) && gamepad_button_check_pressed(l4CF3754E_0, l4CF3754E_1))
+var gamepadindex = global.PlayerGamePad[1];
+if(gamepadindex >= 0 && gamepad_is_connected(gamepadindex) && gamepad_button_check_pressed(gamepadindex, gp_start))
 {
 	room_goto(Start);
 }

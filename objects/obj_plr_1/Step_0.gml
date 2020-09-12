@@ -3,7 +3,7 @@ if(plr_1_alive == 1)
 	if(global.timeglobal == 1)
 	{
 		// Check player gamepad assigment
-		var gamepadindex = global.PlayerGamePad[1]
+		var gamepadindex = global.PlayerGamePad[1];
 		if ( gamepadindex >= 0 && gamepad_is_connected(gamepadindex)) {
 			
 			// shooting
