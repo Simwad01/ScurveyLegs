@@ -1,4 +1,4 @@
-if(global.mapselect == 1)
+if(global.mapselect == 0)
 {
 	draw_set_font(fnt_map);
 
@@ -9,7 +9,7 @@ if(global.mapselect == 1)
 	draw_text(600, 600, string("  Rum Rumbles") + "");
 }
 
-if(global.mapselect == 2)
+if(global.mapselect == 1)
 {
 	draw_set_font(fnt_map);
 
@@ -20,7 +20,7 @@ if(global.mapselect == 2)
 	draw_text(600, 600, string("  Deck Swabber") + "");
 }
 
-if(global.mapselect == 3)
+if(global.mapselect == 2)
 {
 	draw_set_font(fnt_map);
 
@@ -31,7 +31,7 @@ if(global.mapselect == 3)
 	draw_text(600, 600, string("Poop Deck Posse") + "");
 }
 
-if(global.mapselect == 4)
+if(global.mapselect == 3)
 {
 	draw_set_font(fnt_map);
 
@@ -42,7 +42,7 @@ if(global.mapselect == 4)
 	draw_text(600, 600, string("Cannon Stuffer") + "");
 }
 
-if(global.mapselect == 5)
+if(global.mapselect == 4)
 {
 	draw_set_font(fnt_map);
 
@@ -53,7 +53,7 @@ if(global.mapselect == 5)
 	draw_text(600, 600, string("Is that a peg leg?") + "");
 }
 
-if(global.mapselect == 6)
+if(global.mapselect == 5)
 {
 	draw_set_font(fnt_map);
 

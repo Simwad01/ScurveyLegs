@@ -10,5 +10,8 @@ for (var i = 1; i <= 4; i++;) {
 	global.PlayerGamePad[i] = -1;
 }
 
+// Define Levels
+global.mapcount = 6;
 
+// Play startup music
 audio_play_sound(snd_music, 0, 1);

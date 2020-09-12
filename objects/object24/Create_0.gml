@@ -1,4 +1,4 @@
-global.mapselect = 1;
+global.mapselect = 0;
 
 global.timeglobal = 0;
 
