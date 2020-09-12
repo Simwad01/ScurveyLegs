@@ -1,1 +1,1 @@
-plr1score = 0;
+playerid = 1;

@@ -31,12 +31,9 @@ if(plr_2_alive == 1)
 
 		plr_2_alive = 0;
 
-		with(object14) {
-			Players = Players-1;
-		}
+		GameTracker.Players -= 1;
 
 		spd_plr2 = 0;
-
 		speed = spd_plr2;
 	}
 }

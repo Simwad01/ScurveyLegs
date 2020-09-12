@@ -28,7 +28,9 @@
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_cannonball4","path":"objects/obj_cannonball4/obj_cannonball4.yy",},"parent":{"name":"obj_plr_2","path":"objects/obj_plr_2/obj_plr_2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_Collision","path":"objects/obj_Collision/obj_Collision.yy",},"parent":{"name":"obj_plr_2","path":"objects/obj_plr_2/obj_plr_2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":1,"value":"40","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"FireSpeed","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
     "name": "Objects",

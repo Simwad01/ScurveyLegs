@@ -12,6 +12,7 @@ for (var i = 1; i <= 4; i++;) {
 
 // Define Levels
 global.mapcount = 6;
+global.NumPlayers = 1 ;
 
 // Play startup music
 audio_play_sound(snd_music, 0, 1);

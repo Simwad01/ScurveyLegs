@@ -1,4 +1,4 @@
-if(plr_1_alive == 1)
+if(plr_alive == 1)
 {
 	// Play cannon Sound for crash
 	var splay_crash = audio_play_sound(snd_cannon_fire, 0, 0);
@@ -16,37 +16,29 @@ if(plr_1_alive == 1)
 	y = yprevious;
 }
 
-temp_health = variable_instance_exists(id, "__dnd_health") ? __dnd_health : 0;
 
-__dnd_health = temp_health-1;
+plr_health -= 1;
 
-temp_health = variable_instance_exists(id, "__dnd_health") ? __dnd_health : 0;
-
-if(temp_health == 2)
+if(plr_health == 2)
 {
 	sprite_index = spr_plr_blue_dmg_1;
 	image_index = 0;
 }
 
-if(temp_health == 1)
+if(plr_health == 1)
 {
 	sprite_index = spr_plr_blue_dmg_2;
 	image_index = 0;
 }
 
-if(temp_health == 0)
+if(plr_health == 0)
 {
 	sprite_index = spr_plr_blue_dead;
 	image_index = 0;
 
-	plr_1_alive = 0;
+	plr_alive = 0;
+	GameTracker.Players -= 1;
 
-	with(object14) {
-	Players = Players-1;
-	
-	}
-
-	spd_plr1 = 0;
-
-	speed = spd_plr1;
+	plr_spd = 0;
+	speed = plr_spd;
 }

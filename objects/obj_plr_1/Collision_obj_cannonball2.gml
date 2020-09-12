@@ -28,9 +28,5 @@ if(temp_health == 0)
 	image_index = 0;
 
 	plr_1_alive = 0;
-
-	with(object14) {
-	Players = Players-1;
-	
-	}
+	GameTracker.Players -= 1;
 }

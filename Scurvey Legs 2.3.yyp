@@ -58,7 +58,7 @@
     {"id":{"name":"obj_explosion_3","path":"objects/obj_explosion_3/obj_explosion_3.yy",},"order":7,},
     {"id":{"name":"obj_dpad","path":"objects/obj_dpad/obj_dpad.yy",},"order":10,},
     {"id":{"name":"obj_title","path":"objects/obj_title/obj_title.yy",},"order":11,},
-    {"id":{"name":"object14","path":"objects/object14/object14.yy",},"order":14,},
+    {"id":{"name":"GameTracker","path":"objects/GameTracker/GameTracker.yy",},"order":14,},
     {"id":{"name":"obj_body","path":"objects/obj_body/obj_body.yy",},"order":15,},
     {"id":{"name":"obj_plr_1_icon","path":"objects/obj_plr_1_icon/obj_plr_1_icon.yy",},"order":16,},
     {"id":{"name":"obj_plr_2_icon","path":"objects/obj_plr_2_icon/obj_plr_2_icon.yy",},"order":17,},
