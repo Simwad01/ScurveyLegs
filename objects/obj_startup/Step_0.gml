@@ -8,7 +8,7 @@ for (var i = 0; i < global.gpcount; i++;)
 			// Button pressed on unassigned controller, current player does *not* have assignment (ie first player)
 			global.PlayerGamePad[global.NumPlayers] = i;
 			global.gpMapped[i] = true;
-			show_debug_message("Gamepad " + string(i) + " mapped to player " + string(NumPlayers));
+			show_debug_message("Gamepad " + string(i) + " mapped to player " + string(global.NumPlayers));
 			show_debug_message("Gamepad " + string(i) + " is " + gamepad_get_description(i));
 			show_debug_message("Gamepad " + string(i) + " has " + string(gamepad_axis_count(i)) + "axes");
 			switch (global.NumPlayers) {

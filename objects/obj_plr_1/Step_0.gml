@@ -17,12 +17,15 @@ if(plr_alive == 1)
 					// Spawn 3 bullets
 					var newBullet1 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);
 					newBullet1.direction += image_angle;
+					newBullet1.Owner = self.id;
 			
 					var newBullet2 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);
 					newBullet2.direction += image_angle+10;
+					newBullet2.Owner = self.id;
 			
 					var newBullet3 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);			
 					newBullet3.direction += image_angle-10;
+					newBullet3.Owner = self.id;
 
 					// Set bullet cooldown
 					shot_clock = 0;
@@ -39,15 +42,15 @@ if(plr_alive == 1)
 					// Spawn 3 bullets
 					var newBullet1 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);
 					newBullet1.direction += image_angle-170;
-					newBullet1.Owner = plr_id;
+					newBullet1.Owner = self.id;
 			
 					var newBullet2 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);
 					newBullet2.direction += image_angle-190;
-					newBullet2.Owner = plr_id;
+					newBullet2.Owner = self.id;
 			
 					var newBullet3 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);			
 					newBullet3.direction += image_angle-180;
-					newBullet3.Owner = plr_id;
+					newBullet3.Owner = self.id;
 
 					// Set bullet cooldown
 					shot_clock = 0;

@@ -1,4 +1,4 @@
-if(plr_2_alive == 1)
+if(plr_alive == 1)
 {
 	// Play cannon Sound for crash
 	var splay_crash = audio_play_sound(snd_cannon_fire, 0, 0);
@@ -14,28 +14,31 @@ if(plr_2_alive == 1)
 	// bounce the ship back
 	x = xprevious;
 	y = yprevious;
-	
-	// Take damage
-	__dnd_health -= 1;
-
-	// Set sprite and conditions based on health
-	if(__dnd_health == 2) {
-		sprite_index = spr_plr_green_dmg_1;
-		image_index = 0;
-	} else if(__dnd_health == 1){
-		sprite_index = spr_plr_green_dmg_2;
-		image_index = 0;
-	} else if(__dnd_health <= 0)	{
-		sprite_index = spr_plr_green_dead;
-		image_index = 0;
-
-		plr_2_alive = 0;
-
-		GameTracker.Players -= 1;
-
-		spd_plr2 = 0;
-		speed = spd_plr2;
-	}
 }
 
 
+plr_health -= 1;
+
+if(plr_health == 2)
+{
+	sprite_index = spr_plr_blue_dmg_1;
+	image_index = 0;
+}
+
+if(plr_health == 1)
+{
+	sprite_index = spr_plr_blue_dmg_2;
+	image_index = 0;
+}
+
+if(plr_health == 0)
+{
+	sprite_index = spr_plr_blue_dead;
+	image_index = 0;
+
+	plr_alive = 0;
+	GameTracker.Players -= 1;
+
+	plr_spd = 0;
+	speed = plr_spd;
+}

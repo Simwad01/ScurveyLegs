@@ -12,4 +12,4 @@ draw_set_colour($FFFFFFFF & $ffffff);
 
 draw_text(1190, 1030, string("") + string(plr4score));
 
-with(obj_plr_1) draw_text(1300, 1020, string("") + string(p1_shot_clock));
+with(obj_plr_1) draw_text(1300, 1020, string("") + string(shot_clock));

@@ -10,4 +10,4 @@ draw_set_font(fnt_score);
 
 draw_set_colour($FFFFFFFF & $ffffff);
 
-draw_text(810, 1030, string("") + string(global.score[playerid]));
+draw_text(810, 1030, string("") + string(global.playerscore[playerid]));

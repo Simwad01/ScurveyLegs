@@ -22,20 +22,20 @@ if (other.Owner != self.id ) {
 		// Update state based on damage
 		if(plr_health == 2)
 		{
-			sprite_index = spr_plr_green_dmg_1;
+			sprite_index = spr_plr_blue_dmg_1;
 			image_index = 0;
 		}
 
 		if(plr_health == 1)
 		{
-			sprite_index = spr_plr_green_dmg_2;
+			sprite_index = spr_plr_blue_dmg_2;
 			image_index = 0;
 		}
 
 		if(plr_health < 1)
 		{
 			// Dead!
-			sprite_index = spr_plr_green_dead;
+			sprite_index = spr_plr_blue_dead;
 			image_index = 0;
 
 			plr_alive = 0;

@@ -1,113 +1,92 @@
-if(plr_2_alive == 1)
+if(plr_alive == 1)
 {
-	var l5329171A_0 = 1;
-	var l5329171A_1 = gp_padl;
-	if(gamepad_is_connected(l5329171A_0) && (gamepad_button_check(l5329171A_0, l5329171A_1) || gamepad_button_check_released(l5329171A_0, l5329171A_1)))
+	if(global.timeglobal == 1)
 	{
-		image_angle += 1;
-	
-		direction += 1;
+		// Check player gamepad assigment
+		var gamepadindex = global.PlayerGamePad[plr_id];
+		if ( gamepadindex >= 0 && gamepad_is_connected(gamepadindex)) {
+			
+			// shooting
+			if(gamepad_button_check(gamepadindex, gp_face3)) {
+				if(shot_clock == 1)
+				{
+					// play sound and set pitch
+					var bulletsnd = audio_play_sound(snd_cannon_fire, 0, 0);
+					audio_sound_pitch(bulletsnd, random_range(4.0,7.0));
+
+					// Spawn 3 bullets
+					var newBullet1 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);
+					newBullet1.direction += image_angle;
+					newBullet1.Owner = self.id;
+			
+					var newBullet2 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);
+					newBullet2.direction += image_angle+10;
+					newBullet2.Owner = self.id;
+			
+					var newBullet3 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);			
+					newBullet3.direction += image_angle-10;
+					newBullet3.Owner = self.id;
+
+					// Set bullet cooldown
+					shot_clock = 0;
+					alarm_set(10, FireSpeed);
+				}
+			}
+			if(gamepad_button_check(gamepadindex, gp_face2)) {
+				if(shot_clock == 1)
+				{
+					// play sound and set pitch
+					var bulletsnd = audio_play_sound(snd_cannon_fire, 0, 0);
+					audio_sound_pitch(bulletsnd, random_range(4.0,7.0));
+
+					// Spawn 3 bullets
+					var newBullet1 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);
+					newBullet1.direction += image_angle-170;
+					newBullet1.Owner = self.id;
+			
+					var newBullet2 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);
+					newBullet2.direction += image_angle-190;
+					newBullet2.Owner = self.id;
+			
+					var newBullet3 = instance_create_layer(obj_plr_1.x, obj_plr_1.y, "Instances", obj_cannonball);			
+					newBullet3.direction += image_angle-180;
+					newBullet3.Owner = self.id;
+
+					// Set bullet cooldown
+					shot_clock = 0;
+					alarm_set(10, FireSpeed);
+				}
+			}
+			
+			// turning
+			var axis0 = gamepad_axis_value(gamepadindex, gp_axislh);
+			var axis1 = gamepad_axis_value(gamepadindex, gp_axislv);
+			show_debug_message("Read axis0 as " + string_format(axis0,1,2));
+			if(gamepad_button_check(gamepadindex, gp_padr) || (axis0 > 0.1)) {
+				image_angle += -1;
+				direction += -1;
+			} else if(gamepad_button_check(gamepadindex, gp_padl) || (axis0 < -0.1)) {
+				image_angle += 1;	
+				direction += 1;
+			}
+			
+			// Speed
+			if(gamepad_button_check_pressed(gamepadindex, gp_padu) || (axis1 < -0.5)) {
+				plr_spd += 1;	
+				if(plr_spd > 3) then plr_spd = 3;
+				speed = plr_spd;
+			} else if(gamepad_button_check_pressed(gamepadindex, gp_padd) || (axis1 > 0.5)) {
+				plr_spd -= 1;
+				if(plr_spd < 0) then plr_spd = 0;
+				speed = plr_spd;
+			} 
+			
+			// other controls
+			if(gamepad_button_check_pressed(gamepadindex, gp_face4)) {
+				shot_type = 1;
+			} else if(gamepad_button_check_pressed(gamepadindex, gp_face1))	{
+				shot_type = 0;
+			}
+		}
 	}
-
-	var l1FA84700_0 = 1;
-	var l1FA84700_1 = gp_padr;
-	if(gamepad_is_connected(l1FA84700_0) && (gamepad_button_check(l1FA84700_0, l1FA84700_1) || gamepad_button_check_released(l1FA84700_0, l1FA84700_1)))
-	{
-		image_angle += -1;
-	
-		direction += -1;
-	}
-
-	var l42829E1C_0 = 1;
-	var l42829E1C_1 = gp_padu;
-	if(gamepad_is_connected(l42829E1C_0) && gamepad_button_check_pressed(l42829E1C_0, l42829E1C_1))
-	{
-		spd_plr2 = spd_plr2+1;
-	
-		speed = spd_plr2;
-	}
-
-	if(spd_plr2 > 3)
-	{
-		spd_plr2 = 3;
-	
-		speed = spd_plr2;
-	}
-
-	if(spd_plr2 < 0)
-	{
-		spd_plr2 = 0;
-	
-		speed = spd_plr2;
-	}
-
-	var l60810A14_0 = 1;
-	var l60810A14_1 = gp_padd;
-	if(gamepad_is_connected(l60810A14_0) && gamepad_button_check_pressed(l60810A14_0, l60810A14_1))
-	{
-		spd_plr2 = spd_plr2-1;
-	
-		speed = spd_plr2;
-	}
-
-	var l68E87585_0 = 1;
-	var l68E87585_1 = gp_face3;
-	if(gamepad_is_connected(l68E87585_0) && gamepad_button_check_pressed(l68E87585_0, l68E87585_1))
-	{
-		var newBullet = instance_create_layer(obj_plr_2.x, obj_plr_2.y, "Instances", obj_cannonball2);
-	
-		audio_sound_pitch(snd_cannon_fire, random_range(4.0,7.0));
-	
-		audio_play_sound(snd_cannon_fire, 0, 0);
-	
-		newBullet.direction += image_angle+0;
-	
-		var newBullet = instance_create_layer(obj_plr_2.x, obj_plr_2.y, "Instances", obj_cannonball2);
-	
-		newBullet.direction += image_angle+10;
-	
-		var newBullet = instance_create_layer(obj_plr_2.x, obj_plr_2.y, "Instances", obj_cannonball2);
-	
-		newBullet.direction += image_angle-10;
-	}
-
-	var l09418EDF_0 = 1;
-	var l09418EDF_1 = gp_face2;
-	if(gamepad_is_connected(l09418EDF_0) && gamepad_button_check_pressed(l09418EDF_0, l09418EDF_1))
-	{
-		var newBullet = instance_create_layer(obj_plr_2.x, obj_plr_2.y, "Instances", obj_cannonball2);
-	
-		audio_sound_pitch(snd_cannon_fire, random_range(4.0,7.0));
-	
-		audio_play_sound(snd_cannon_fire, 0, 0);
-	
-		newBullet.direction += image_angle-180;
-	
-		var newBullet = instance_create_layer(obj_plr_2.x, obj_plr_2.y, "Instances", obj_cannonball2);
-	
-		newBullet.direction += image_angle-190;
-	
-		var newBullet = instance_create_layer(obj_plr_2.x, obj_plr_2.y, "Instances", obj_cannonball2);
-	
-		newBullet.direction += image_angle-170;
-	}
-}
-
-if(plr_2_alive == 0)
-{
-	speed = 0;
-}
-
-var l5CEBA6AB_0 = 1;
-var l5CEBA6AB_1 = gp_face4;
-if(gamepad_is_connected(l5CEBA6AB_0) && gamepad_button_check_pressed(l5CEBA6AB_0, l5CEBA6AB_1))
-{
-	shot_type_2 = 1;
-}
-
-var l514CEC25_0 = 1;
-var l514CEC25_1 = gp_face1;
-if(gamepad_is_connected(l514CEC25_0) && gamepad_button_check_pressed(l514CEC25_0, l514CEC25_1))
-{
-	shot_type_2 = 0;
 }

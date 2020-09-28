@@ -7,7 +7,7 @@ if(Players == 1)
 		// Do something?
 	}
 
-	with(obj_plr_2) var l51D0B754_0 = plr_2_alive == 1;
+	with(obj_plr_2) var l51D0B754_0 = plr_alive == 1;
 	if(l51D0B754_0)
 	{
 		with(plr_2_score) {
@@ -22,7 +22,7 @@ if(Players == 1)
 		Players = 4;
 	}
 
-	with(obj_plr_1) var l619A4517_0 = plr_1_alive == 1;
+	with(obj_plr_1) var l619A4517_0 = plr_alive == 1;
 	if(l619A4517_0)
 	{
 		with(plr_1_score) {

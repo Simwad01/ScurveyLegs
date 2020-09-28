@@ -1,4 +1,3 @@
-//gamepad_set_axis_deadzone(0, 1);
 
 // Start with firing in cooldown
 alarm_set(11, 60);
@@ -14,7 +13,7 @@ plr_spd = 1;
 image_angle = 90;
 speed = plr_spd;
 
-// NFI what this is all about??
+// Onetime angle set??
 bbb = 1;
 if(bbb == 1)
 {

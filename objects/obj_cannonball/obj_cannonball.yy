@@ -22,9 +22,6 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_cannonball","path":"objects/obj_cannonball/obj_cannonball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_plr_2","path":"objects/obj_plr_2/obj_plr_2.yy",},"parent":{"name":"obj_cannonball","path":"objects/obj_cannonball/obj_cannonball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_plr_3","path":"objects/obj_plr_3/obj_plr_3.yy",},"parent":{"name":"obj_cannonball","path":"objects/obj_cannonball/obj_cannonball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_plr_4","path":"objects/obj_plr_4/obj_plr_4.yy",},"parent":{"name":"obj_cannonball","path":"objects/obj_cannonball/obj_cannonball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_Collision","path":"objects/obj_Collision/obj_Collision.yy",},"parent":{"name":"obj_cannonball","path":"objects/obj_cannonball/obj_cannonball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
