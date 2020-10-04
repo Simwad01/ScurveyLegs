@@ -1,4 +1,4 @@
-if(plr_3_alive == 1)
+if(plr_alive == 1)
 {
 	// Play cannon Sound for crash
 	var splay_crash = audio_play_sound(snd_cannon_fire, 0, 0);
@@ -16,8 +16,29 @@ if(plr_3_alive == 1)
 	y = yprevious;
 }
 
-plr_3_alive = 1;
 
-spd_plr3 = 1;
+plr_health -= 1;
 
-speed = spd_plr3;
+if(plr_health == 2)
+{
+	sprite_index = spr_plr_red_dmg_1;
+	image_index = 0;
+}
+
+if(plr_health == 1)
+{
+	sprite_index = spr_plr_red_dmg_2;
+	image_index = 0;
+}
+
+if(plr_health == 0)
+{
+	sprite_index = spr_plr_red_dead;
+	image_index = 0;
+
+	plr_alive = 0;
+	GameTracker.Players -= 1;
+
+	plr_spd = 0;
+	speed = plr_spd;
+}

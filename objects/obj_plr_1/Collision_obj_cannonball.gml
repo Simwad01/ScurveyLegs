@@ -1,7 +1,7 @@
 // Don't hit own bullet!
 if (other.Owner != self.id ) {
-	// Kill the bullet
-	with other instance_destroy();
+	// Store the owner then kill the bullet
+	var shooter = other.Owner;
 
 	// If the player is alive, shit happens, otherwise not.
 	if(plr_alive == 1)
@@ -18,6 +18,7 @@ if (other.Owner != self.id ) {
 
 		// Deal damage
 		plr_health -= 1;
+		
 
 		// Update state based on damage
 		if(plr_health == 2)
@@ -40,6 +41,20 @@ if (other.Owner != self.id ) {
 
 			plr_alive = 0;
 			GameTracker.Players -= 1;
+
+			plr_spd = 0;
+			speed = plr_spd;
+		}
+		
+		// Update score - extra if kill shot
+		if (shooter != 0) {
+			show_debug_message("Player " + string(playerid) + " hit by " + string(shooter));
+			if (plr_alive == 0) {
+				shooter.plr_score += 100; 
+			} else {
+				shooter.plr_score += 50; 				
+			}
 		}
 	}
+	with other instance_destroy();
 }

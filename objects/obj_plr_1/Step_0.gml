@@ -1,5 +1,6 @@
 if(plr_alive == 1)
 {
+	var gamepadindex = global.PlayerGamePad[plr_id];
 	if(global.timeglobal == 1)
 	{
 		// Check player gamepad assigment
@@ -61,7 +62,7 @@ if(plr_alive == 1)
 			// turning
 			var axis0 = gamepad_axis_value(gamepadindex, gp_axislh);
 			var axis1 = gamepad_axis_value(gamepadindex, gp_axislv);
-			show_debug_message("Read axis0 as " + string_format(axis0,1,2));
+			//show_debug_message("Read axis0 as " + string_format(axis0,1,2));
 			if(gamepad_button_check(gamepadindex, gp_padr) || (axis0 > 0.1)) {
 				image_angle += -1;
 				direction += -1;
@@ -86,6 +87,17 @@ if(plr_alive == 1)
 				shot_type = 1;
 			} else if(gamepad_button_check_pressed(gamepadindex, gp_face1))	{
 				shot_type = 0;
+			}
+		}
+	} else {
+		// Game in stopped state
+		if ( gamepadindex >= 0 && gamepad_is_connected(gamepadindex)) {
+			if (gamepad_button_check(gamepadindex,gp_face1)) {
+				if (GameTracker.game_over == 1) {
+					room_goto(Start);
+				} else {
+					global.timeglobal = 1 ;
+				}
 			}
 		}
 	}

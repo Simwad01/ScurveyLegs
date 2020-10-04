@@ -9,6 +9,9 @@ plr_id = 1;
 plr_alive = 1;
 plr_health = 3;
 plr_spd = 1;
+// Use object score or global??
+global.playerscore[plr_id] = 0;
+plr_score = 0;
 
 image_angle = 90;
 speed = plr_spd;

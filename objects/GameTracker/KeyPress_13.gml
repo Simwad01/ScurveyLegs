@@ -1,6 +1,6 @@
 global.timeglobal = 0;
 
-oldplr1score = plr1score;
+//oldplr1score = plr1score;
 
 restart = 1;
 
