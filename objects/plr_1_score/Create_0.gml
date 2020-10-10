@@ -1,3 +1,4 @@
+// Must set which player score to display
 playerid = 1;
 
 switch (playerid) {

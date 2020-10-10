@@ -48,7 +48,7 @@ if (other.Owner != self.id ) {
 		
 		// Update score - extra if kill shot
 		if (shooter != 0) {
-			show_debug_message("Player " + string(playerid) + " hit by " + string(shooter));
+			show_debug_message("Player " + string(plr_id) + " hit by " + string(shooter));
 			if (plr_alive == 0) {
 				shooter.plr_score += 100; 
 			} else {

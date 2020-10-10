@@ -1,4 +1,4 @@
-window_set_fullscreen(true);
+window_set_fullscreen(false);
 
 game_over = 0;
 
